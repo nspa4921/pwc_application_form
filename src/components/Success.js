@@ -26,7 +26,7 @@ export class Success extends Component {
             maxWidth='sm'
           >
             <Typography variant="h4" align="center">
-              <img src={logo} style={{width: "100px"}}/>
+              <img alt={logo} src={logo} style={{width: "100px"}}/>
             </Typography> 
             <Typography align="center">
             <h1>Tak for din interesse!</h1>

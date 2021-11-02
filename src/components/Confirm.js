@@ -22,7 +22,7 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { firstName, lastName, email, selecteddate, mobileNumber }
+      values: { firstName, lastName, email, selectedDate, arrangement, mobile }
     } = this.props;
     
     return (
@@ -34,7 +34,7 @@ export class Confirm extends Component {
             maxWidth='sm'
           >
             <Typography variant="h4" align="center">
-              <img src={logo} style={{width: "100px"}}/>
+              <img alt={logo} src={logo} style={{width: "100px"}}/>
             </Typography> 
             <List>
               <ListItem>
@@ -47,10 +47,13 @@ export class Confirm extends Component {
                 <ListItemText primary="E-mailadresse" secondary={email} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Din valgt dato og tidspunkt" secondary={selecteddate} />
+                <ListItemText primary="Telefon nummer" secondary={mobile} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Telefon nummer" secondary={mobileNumber} />
+                <ListItemText primary="Arrangement" secondary={arrangement} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Din valgt dato og tidspunkt" secondary={selectedDate} />
               </ListItem>
             </List>
             <br />

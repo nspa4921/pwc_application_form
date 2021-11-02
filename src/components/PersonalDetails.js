@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import logo from '../assets/pwc-logo-business.png'; 
 import Select from '@material-ui/core/Select';
-import { FormControl, FormHelperText, MenuItem, Input } from '@material-ui/core';
+import { FormControl, FormHelperText, MenuItem } from '@material-ui/core';
 import BasicDateTimePicker from './DatePicker/datePicker';
 
 export class PersonalDetails extends Component {
@@ -23,11 +22,11 @@ export class PersonalDetails extends Component {
 
   render() {
     const { values, handleChange } = this.props;
-    const coursedescription1 = <div style={{color: "blue"}}> &nbsp; <i>Grow your ruby on rails skills (from 15-30Nov)</i></div>;
-    const coursedescription2 = <div style={{color: "blue"}}> &nbsp; Learn Database Programming online at your own pace. Start today with a special offer.</div>;
+    const coursedescription1 = <div> <b>Online kursus til Ruby on Rails</b> <br /><i style={{fontSize: "13px"}}>Grow your ruby on rails skills (from 15-30Nov)</i></div>;
+    const coursedescription2 = <div> <b>Learning on databases </b> <br /> <i style ={{fontSize: "13px"}}>Learn Database Programming online. <br />Start today with a special offer. </i></div>;
 
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider >
         <>
           <Dialog
             open
@@ -35,25 +34,22 @@ export class PersonalDetails extends Component {
             maxWidth='sm'
           >
            <Typography variant="h4" align="center">
-              <img src={logo} style={{width: "100px"}}/>
+              <img alt={logo} src={logo} style={{width: "100px"}}/>
             </Typography> 
           <br />
           <br />
             <FormHelperText>Valg din arrangement</FormHelperText>
             <FormControl variant="standard" color="primary" label="Valg arrangement" >
-              {/* <InputLabel > Valg din arrangement</InputLabel> */}
             <Select 
               variant='outlined' 
-              defaultValue={values.selector}
-              onChange={handleChange('selector')}
+              defaultValue={values.arrangement}
+              onChange={handleChange('arrangement')}
               fullWidth>
-                <MenuItem defaultValue={values.selector} onChange={handleChange('selector')} value={'Intro kursus til Ruby on Rails'}>
-                  Intro kursus til Ruby on Rails 
-                  <i><p>{coursedescription1}</p></i>
+                <MenuItem value={'Intro kursus til Ruby on Rails'}>
+                  {coursedescription1}
                 </MenuItem>
-                <MenuItem defaultValue={values.selector} onChange={handleChange('selector')} value={'Learning on databases'}>
-                  Learning on databases 
-                  <i><p>{coursedescription2}</p></i>
+                <MenuItem value={'Learning on databases'}>
+                   {coursedescription2}
                 </MenuItem>
           </Select>
           </FormControl>

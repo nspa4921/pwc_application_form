@@ -6,8 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import logo from '../assets/pwc-logo-business.png'; 
 
-
-
 export class UserDetails extends Component {
   continue = e => {
     e.preventDefault();
@@ -26,13 +24,14 @@ export class UserDetails extends Component {
             maxWidth='sm'
           >
             <Typography variant="h4" align="center">
-              <img src={logo} style={{width: "100px"}}/>
+              <img alt={logo} src={logo} style={{width: "100px"}}/>
             </Typography> 
             <div>
             <h1>Kursustilmelding </h1>
             <p>Udfyld nedenstående tilmeldingsblanket.</p>
             </div>
             <TextField
+              required
               placeholder="Sriv dit Fornavn"
               label="Fornavn "
               onChange={handleChange('firstName')}
@@ -42,6 +41,7 @@ export class UserDetails extends Component {
             />
             <br />
             <TextField
+              required
               placeholder="Sriv dit Efternavn"
               label="Efternavn"
               onChange={handleChange('lastName')}
@@ -50,7 +50,9 @@ export class UserDetails extends Component {
               fullWidth
             />
             <br />
+            {/* Should be a email validation */}
             <TextField
+              required
               placeholder="Indtast din e-mailadresse"
               label="Email"
               onChange={handleChange('email')}
@@ -59,12 +61,14 @@ export class UserDetails extends Component {
               fullWidth
             />
             <br />
+            {/* Should be a phone nr validation Input form */}
             <TextField
-            type="number"
+              required
+              type="number"
               placeholder="Skriv til telefonnummer"
-              label="Telefon nummer"
-              onChange={handleChange('mobileNumber')}
-              defaultValue={values.mobileNumber}
+              label="Telefon nummer(+45)"
+              onChange={handleChange('mobile')}
+              defaultValue={values.mobile}
               fullWidth
               floatingLabelText="mobileNumber"
                 />
