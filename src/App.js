@@ -1,11 +1,11 @@
 
 import './App.css';
+import { UserForm } from './components/UseForm';
 
 function App() {
   return (
     <div className="App">
-      <h2>Initial text
-      </h2>
+      <UserForm />
     </div>
   );
 }
