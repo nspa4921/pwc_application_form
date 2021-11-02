@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import MuiPhoneNumber from "material-ui-phone-number";
 
 export class PersonalDetails extends Component {
   continue = e => {
@@ -26,7 +26,6 @@ export class PersonalDetails extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Enter Personal Details" />
             <TextField
               placeholder="Enter Your Occupation"
               label="Occupation"
@@ -36,6 +35,15 @@ export class PersonalDetails extends Component {
               fullWidth
             />
             <br />
+            <MuiPhoneNumber
+                    name="phone"
+                    label="Phone Number"
+                    data-cy="user-phone"
+                    defaultCountry={"us"}
+                    value={this.state.phone}
+                    onChange={this.handlePhoneChange}
+                  />
+                  <br/>
             <TextField
               placeholder="Enter Your City"
               label="City"

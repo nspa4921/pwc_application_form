@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
+// import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import logo from '../assets/pwc-logo-business.png'; 
+
+
 
 export class UserDetails extends Component {
   continue = e => {
@@ -11,6 +14,7 @@ export class UserDetails extends Component {
     this.props.nextStep();
   };
 
+  
   render() {
     const { values, handleChange } = this.props;
     return (
@@ -21,10 +25,10 @@ export class UserDetails extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Enter User Details" />
+            <img src={logo} style={{width: "100px"}}/>
             <TextField
-              placeholder="Enter Your First Name"
-              label="First Name"
+              placeholder="Sriv dit Fornavn"
+              label="Fornavn "
               onChange={handleChange('firstName')}
               defaultValue={values.firstName}
               margin="normal"
@@ -32,8 +36,8 @@ export class UserDetails extends Component {
             />
             <br />
             <TextField
-              placeholder="Enter Your Last Name"
-              label="Last Name"
+              placeholder="Sriv dit Efternavn"
+              label="Efternavn"
               onChange={handleChange('lastName')}
               defaultValue={values.lastName}
               margin="normal"
@@ -41,7 +45,7 @@ export class UserDetails extends Component {
             />
             <br />
             <TextField
-              placeholder="Enter Your Email"
+              placeholder="Indtast din e-mailadresse"
               label="Email"
               onChange={handleChange('email')}
               defaultValue={values.email}
@@ -53,7 +57,7 @@ export class UserDetails extends Component {
               color="primary"
               variant="contained"
               onClick={this.continue}
-            >Continue</Button>
+            >Fortsætte</Button>
           </Dialog>
         </>
       </MuiThemeProvider>

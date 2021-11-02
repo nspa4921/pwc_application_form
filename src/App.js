@@ -1,8 +1,8 @@
 
-import './App.css';
+import React from 'react';
 import { UserForm } from './components/UseForm';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <UserForm />
