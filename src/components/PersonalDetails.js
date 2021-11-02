@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import Typography from "@material-ui/core/Typography";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import MuiPhoneNumber from "material-ui-phone-number";
+import logo from '../assets/pwc-logo-business.png'; 
+import Select from '@material-ui/core/Select';
+import { FormControl, FormHelperText, MenuItem, Input } from '@material-ui/core';
+import BasicDateTimePicker from './DatePicker/datePicker';
 
 export class PersonalDetails extends Component {
   continue = e => {
@@ -15,9 +19,13 @@ export class PersonalDetails extends Component {
     e.preventDefault();
     this.props.prevStep();
   };
+  
 
   render() {
     const { values, handleChange } = this.props;
+    const coursedescription1 = <div style={{color: "blue"}}> &nbsp; <i>Grow your ruby on rails skills (from 15-30Nov)</i></div>;
+    const coursedescription2 = <div style={{color: "blue"}}> &nbsp; Learn Database Programming online at your own pace. Start today with a special offer.</div>;
+
     return (
       <MuiThemeProvider>
         <>
@@ -26,54 +34,44 @@ export class PersonalDetails extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <TextField
-              placeholder="Enter Your Occupation"
-              label="Occupation"
-              onChange={handleChange('occupation')}
-              defaultValue={values.occupation}
-              margin="normal"
-              fullWidth
-            />
-            <br />
-            <MuiPhoneNumber
-                    name="phone"
-                    label="Phone Number"
-                    data-cy="user-phone"
-                    defaultCountry={"us"}
-                    value={this.state.phone}
-                    onChange={this.handlePhoneChange}
-                  />
-                  <br/>
-            <TextField
-              placeholder="Enter Your City"
-              label="City"
-              onChange={handleChange('city')}
-              defaultValue={values.city}
-              margin="normal"
-              fullWidth
-            />
-            <br />
-            <TextField
-              placeholder="Enter Your Bio"
-              label="Bio"
-              onChange={handleChange('bio')}
-              defaultValue={values.bio}
-              margin="normal"
-              fullWidth
-            />
-            <br />
-
+           <Typography variant="h4" align="center">
+              <img src={logo} style={{width: "100px"}}/>
+            </Typography> 
+          <br />
+          <br />
+            <FormHelperText>Valg din arrangement</FormHelperText>
+            <FormControl variant="standard" color="primary" label="Valg arrangement" >
+              {/* <InputLabel > Valg din arrangement</InputLabel> */}
+            <Select 
+              variant='outlined' 
+              defaultValue={values.selector}
+              onChange={handleChange('selector')}
+              fullWidth>
+                <MenuItem defaultValue={values.selector} onChange={handleChange('selector')} value={'Intro kursus til Ruby on Rails'}>
+                  Intro kursus til Ruby on Rails 
+                  <i><p>{coursedescription1}</p></i>
+                </MenuItem>
+                <MenuItem defaultValue={values.selector} onChange={handleChange('selector')} value={'Learning on databases'}>
+                  Learning on databases 
+                  <i><p>{coursedescription2}</p></i>
+                </MenuItem>
+          </Select>
+          </FormControl>
+          <br />
+          <BasicDateTimePicker />
+          <br />
+          <br />
             <Button
               color="secondary"
               variant="contained"
               onClick={this.back}
-            >Back</Button>
+            >Tilbage</Button>
 
             <Button
               color="primary"
               variant="contained"
               onClick={this.continue}
-            >Continue</Button>
+            >Fortsætte</Button>
           </Dialog>
         </>
       </MuiThemeProvider>

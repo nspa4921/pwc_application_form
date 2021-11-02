@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import Typography from "@material-ui/core/Typography";
+import logo from '../assets/pwc-logo-business.png'; 
 
 export class Success extends Component {
   continue = e => {
@@ -24,9 +25,13 @@ export class Success extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Success" />
-            <h1>Thank You For Your Submission</h1>
-            <p>You will get an email with further instructions.</p>
+            <Typography variant="h4" align="center">
+              <img src={logo} style={{width: "100px"}}/>
+            </Typography> 
+            <Typography align="center">
+            <h1>Tak for din interesse!</h1>
+            <p>Du vil modtage en e-mail med yderligere instruktioner. </p>
+            </Typography>
           </Dialog>
         </>
       </MuiThemeProvider>

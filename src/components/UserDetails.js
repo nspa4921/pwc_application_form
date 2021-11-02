@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
-// import AppBar from '@material-ui/core/AppBar';
+import Typography from "@material-ui/core/Typography";
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -18,14 +18,20 @@ export class UserDetails extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider> 
         <>
           <Dialog
             open
             fullWidth
             maxWidth='sm'
           >
-            <img src={logo} style={{width: "100px"}}/>
+            <Typography variant="h4" align="center">
+              <img src={logo} style={{width: "100px"}}/>
+            </Typography> 
+            <div>
+            <h1>Kursustilmelding </h1>
+            <p>Udfyld nedenstående tilmeldingsblanket.</p>
+            </div>
             <TextField
               placeholder="Sriv dit Fornavn"
               label="Fornavn "
@@ -53,6 +59,16 @@ export class UserDetails extends Component {
               fullWidth
             />
             <br />
+            <TextField
+            type="number"
+              placeholder="Skriv til telefonnummer"
+              label="Telefon nummer"
+              onChange={handleChange('mobileNumber')}
+              defaultValue={values.mobileNumber}
+              fullWidth
+              floatingLabelText="mobileNumber"
+                />
+                <br />
             <Button
               color="primary"
               variant="contained"
