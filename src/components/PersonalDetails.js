@@ -26,7 +26,7 @@ export class PersonalDetails extends Component {
     const coursedescription2 = <div> <b>Learning on databases </b> <br /> <i style ={{fontSize: "13px"}}>Learn Database Programming online. <br />Start today with a special offer. </i></div>;
 
     return (
-      <MuiThemeProvider >
+      <MuiThemeProvider>
         <>
           <Dialog
             open
@@ -54,7 +54,8 @@ export class PersonalDetails extends Component {
           </Select>
           </FormControl>
           <br />
-          <BasicDateTimePicker />
+          <BasicDateTimePicker selected={values.selecteddate}
+                    onChange={handleChange('selecteddate')} />
           <br />
           <br />
             <Button

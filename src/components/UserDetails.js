@@ -73,6 +73,7 @@ export class UserDetails extends Component {
               floatingLabelText="mobileNumber"
                 />
                 <br />
+                <br />
             <Button
               color="primary"
               variant="contained"

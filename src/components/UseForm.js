@@ -11,7 +11,7 @@ export class UserForm extends Component {
     lastName: '',
     email: '',
     mobile: '',
-    selectedDate: '',
+    selectedDate: Date.now(),
     arrangement: ''
   };
 
