@@ -23,13 +23,17 @@ export class UserDetails extends Component {
             fullWidth
             maxWidth='sm'
           >
+
+             {/* Header */}
             <Typography variant="h4" align="center">
               <img alt={logo} src={logo} style={{width: "100px"}}/>
+              <br/>
+              Kursustilmelding 
             </Typography> 
-            <div>
-            <h1>Kursustilmelding </h1>
-            <p>Udfyld nedenstående tilmeldingsblanket.</p>
-            </div>
+            <Typography variant="title" align="center">
+              <p>Udfyld nedenstående tilmeldingsblanket.</p>
+            </Typography> 
+              
             <TextField
               required
               placeholder="Sriv dit Fornavn"

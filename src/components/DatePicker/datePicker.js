@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import DateFnsUtils from '@date-io/date-fns';
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import moment from 'moment';
+
 
 function BasicDateTimePicker() {
   const [selecteddate, handleDateChange] = useState(new Date());
@@ -11,8 +13,8 @@ function BasicDateTimePicker() {
         label="Valg dato og tidspunkt"
         inputVariant="outlined"
         value={selecteddate}
-        onChange={date => handleDateChange(date)} 
-      />
+        onChange={date => handleDateChange(date)}
+        formatDate={(date) => moment(new Date()).format('MM-DD-YYYY')}      />
     </MuiPickersUtilsProvider>
   );
 }
